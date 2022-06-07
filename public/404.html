@@ -10,6 +10,23 @@
 <body>
     <h1>404</h1>
     <p>Page not found</p>
-    <a href="/">Go back</a>
+    <a id="link-send" href="/">Go back in: <span id="counter"></span></a>
+
+    <script>
+        var segundos = 9;
+        function actualizar(){
+            document.getElementById('counter').innerHTML = "0"+segundos+"s";
+            if (segundos == 0) {
+                document.getElementById('link-send').innerHTML = "Redirecting...";
+                setTimeout(function(){
+                    window.location.href="/";
+                }, 500);
+            }else{
+                segundos-=1;
+                setTimeout(actualizar, 1000);
+            }
+        }
+        actualizar();
+    </script>
 </body>
 </html>
