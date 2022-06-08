@@ -1,15 +1,30 @@
-const page404 = require('../pages/404')
+const path = require('path');
+const express = require('express');
+const app = express();
+
+// import Element from './static';
+
 const controller = {}
 
-
+// index page
 controller.index = (req, res)=>{
-    res.send('Hello from the controller...')
-    // res.render();
+    res.sendFile(path.resolve('index.html'))
 }
-controller.info = (req, res)=>{
-    // res.sendFile(__dirname,'./pages/404.js')
-//main-section
-    res.render(page404, document.getElementById('main-section'));
+
+//infor page
+controller.posts = (req, res)=>{
+    res.send('posts...');
 }
+
+// not found page + redirect
+controller.errorFile = (req, res)=>{
+    res.sendFile(path.join(__dirname,'../../public/404.html'));
+}
+
+controller.static = (req, res)=>{
+    res.render('static');
+    // res.render(path.join(__dirname,'static.js'));
+}
+console.log(__dirname);
 
 module.exports = controller; 
