@@ -10,7 +10,8 @@ const routes = require('./src/routes/index.routes')
 
 
 // app.use(require('./src/routes/index.routes'));
-app.use(express.static(path.join(__dirname,'/public')));
+app.use(express.static(path.join(__dirname,'/public'))); // for error 404
+app.use(express.static(path.join(__dirname))); //for index page
 app.use(routes);
 
 

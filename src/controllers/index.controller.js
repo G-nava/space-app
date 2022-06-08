@@ -1,14 +1,11 @@
 const path = require('path');
-const express = require('express');
-const app = express();
-
-// import Element from './static';
+// const express = require('express');
 
 const controller = {}
 
 // index page
 controller.index = (req, res)=>{
-    res.sendFile(path.resolve('index.html'))
+    res.sendFile(path.join(__dirname,'../../index.html'))
 }
 
 //infor page
