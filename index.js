@@ -5,7 +5,7 @@ const app = express(); // ejecucion inmediata
 
 app.use("/static",express.static(path.resolve(__dirname,"src","static")));
 // app.get('/*',controller.index);
-app.get('/',(req, res)=>{
+app.get('/*',(req, res)=>{
     res.sendFile(path.resolve(__dirname,"src","index.html"))
 });
 
