@@ -19,9 +19,8 @@ controller.errorFile = (req, res)=>{
 }
 
 controller.static = (req, res)=>{
-    res.render('static');
-    // res.render(path.join(__dirname,'static.js'));
+    res.sendFile(path.resolve(__dirname,'static.js'));
+ // res.render(path.join(__dirname,'static.js'));
 }
-console.log(__dirname);
 
 module.exports = controller; 
