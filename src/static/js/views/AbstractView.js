@@ -1,10 +1,9 @@
 export default class {
-    constructor(){
-        this.params = params;
+    constructor(params){
+        this.params = params; 
     }
 
-    setTitle(title){
-        // cambia el titulo de la pestaña
+    setTitle(title){// cambia el titulo de la pestaña
         document.title = title;
     }
 
