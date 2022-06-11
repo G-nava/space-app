@@ -1,8 +1,8 @@
 import AbstactView from "./AbstactView";
 
-
 export default class extends AbstactView{
     constructor(){
+        super();
         this.setTitle('Dashboard');
     }
 

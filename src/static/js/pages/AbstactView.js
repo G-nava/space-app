@@ -1,6 +1,6 @@
 export default class {
     constructor(){
-
+        this.params = params;
     }
 
     setTitle(title){

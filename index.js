@@ -9,6 +9,11 @@ app.get('/*',(req, res)=>{
     res.sendFile(path.resolve(__dirname,"src","index.html"))
 });
 
+// const port = process.env.PORT || 3000 //3000
+app.listen(process.env.PORT || 3000, ()=> console.log(`Server listening...`))
+
+// module.exports = app;
+
 // console.log(path.join(__dirname,"/src/static/js/index.js"));
 
 // const routes = require('./src/routes/index.routes')
@@ -33,7 +38,3 @@ app.get('/*',(req, res)=>{
 
 
 //page not found
-const port = process.env.PORT || 3000 //3000
-app.listen(port, ()=> console.log(`Listening on port ${port}...`))
-
-module.exports = app;

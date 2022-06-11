@@ -1,3 +1,5 @@
+ import Dashboard from './pages/Dashboard';
+
 const navigateTo = (url)=>{
     history.pushState(null, null, url)
     router();
@@ -7,16 +9,16 @@ const router = async()=>{
     const routes = [
         {
             path : '/',
-            view: ()=> console.log('Dashboard')
+            view: Dashboard
         },
-        {
-            path : '/posts',
-            view: ()=> console.log('Posts')
-        },
-        {
-            path : '/settings',
-            view: ()=> console.log('settings')
-        },
+        // {
+        //     path : '/posts',
+        //     view: ()=> console.log('Posts')
+        // },
+        // {
+        //     path : '/settings',
+        //     view: ()=> console.log('settings')
+        // },
         
     ];
 
@@ -24,7 +26,7 @@ const router = async()=>{
     const matchRoutes = routes.map(route => {
         return{ // return an object
             route:  route,
-            isMatch:location.pathname === route.path //boolean
+            isMatch: location.pathname === route.path //boolean
             /*
             Toma la ruta solicitada o actual en HTML y la compara
             con el objeto routes
@@ -36,14 +38,13 @@ const router = async()=>{
     if(!match){
         match = {
             route: routes[0], // if there is not a match, it goes to index
-            isMatch: true
-            
-            // path : '*',
-            // view: ()=> console.log('Error 404...!')
-            
+            isMatch: true            
         };
     }
-    console.log(match.route.view()); // put all the routes wit true and false
+
+    const view = new match.route.view();
+    document.querySelector("#app").innerHTML = await view.getHtml();
+    //console.log(match.route.view()); // put all the routes wit true and false
 };
 
 window.addEventListener('popstate', router)
