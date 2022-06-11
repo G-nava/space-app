@@ -1,4 +1,4 @@
-// import Dashboard from './views/Dashboard';
+import Dashboard from './views/Dashboard';
 
 
 // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -10,17 +10,17 @@ const navigateTo = url =>{
 const router = async ()=>{
     const routes = [
         {   path : "/",
-            // view: Dashboard
-            view: ()=> console.log('dashboard')
+            view: Dashboard
+            // view: ()=> console.log('dashboard')
         },
-        {
-            path : '/posts',
-            view: ()=> console.log('Posts')
-        },
-        {
-            path : '/settings',
-            view: ()=> console.log('settings')
-        },
+        // {
+        //     path : '/posts',
+        //     view: ()=> console.log('Posts')
+        // },
+        // {
+        //     path : '/settings',
+        //     view: ()=> console.log('settings')
+        // },
         
     ];
 
@@ -44,15 +44,14 @@ const router = async ()=>{
             isMatch: true            
         };
     }
-    
-    console.log(match);
-    // const view = new match.route.view();
-    // document.querySelector("#app").innerHTML = await view.getHtml();
+
+    const view = new match.route.view();
+    document.querySelector("#app").innerHTML = await view.getHtml();
     //match.route.view() put all the routes wit true and false
 };
 
-window.addEventListener('popstate', router);
 
+window.addEventListener('popstate', router);
 
 document.addEventListener('DOMContentLoaded',()=>{
     document.body.addEventListener('click', clickEvent => {
