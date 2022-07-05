@@ -1,4 +1,5 @@
 import Dashboard from './views/Dashboard.js';
+import Settings from './views/Settings.js';
 
 // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 // const getParams = match => {
@@ -24,10 +25,10 @@ const router = async ()=>{
         //     path : '/posts',
         //     view: ()=> console.log('Posts')
         // },
-        // {
-        //     path : '/settings',
-        //     view: ()=> console.log('settings')
-        // },
+        {
+            path : '/settings',
+            view: Settings
+        },
         
     ];
 
