@@ -47,7 +47,7 @@ const router = async ()=>{
     // match find that one that is true
     if(!match){
         match = {
-            route: routes[0], // if there is not a match, it goes to index
+            route: routes[0], // if there is not a match, it goes to index aka dashboard 
             isMatch: true            
         };
     }

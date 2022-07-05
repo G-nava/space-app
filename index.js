@@ -4,7 +4,7 @@ const  path = require('path');
 
 const app = express(); // ejecucion inmediata
 
-//middleware
+//middleware  
 app.use("/static",express.static(path.resolve(__dirname,"src","static")));
 
 app.get('/*',(req, res)=>{
