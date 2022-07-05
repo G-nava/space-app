@@ -1,6 +1,5 @@
 import Dashboard from './views/Dashboard.js';
 
-
 // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 // const getParams = match => {
 //     const values = match.result.slice(1);
