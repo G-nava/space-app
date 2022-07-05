@@ -1,5 +1,6 @@
 import Dashboard from './views/Dashboard.js';
 import Settings from './views/Settings.js';
+import Posts from './views/Posts.js';
 
 // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 // const getParams = match => {
@@ -21,10 +22,11 @@ const router = async ()=>{
         {   path : "/",
             view: Dashboard
         },
-        // {
-        //     path : '/posts',
-        //     view: ()=> console.log('Posts')
-        // },
+        {
+            path : '/posts',
+            view: Posts
+            // view: ()=> console.log('Posts')
+        },
         {
             path : '/settings',
             view: Settings
