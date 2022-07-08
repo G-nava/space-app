@@ -20,6 +20,7 @@ const navigateTo = url =>{
 };
 
 const router = async ()=>{
+    console.log(pathToRegex('/posts/:id'));
     const routes = [
         {   path : "/", view: Dashboard},
         {   path : '/posts', view: Posts},  // view: ()=> console.log('Posts')
@@ -32,7 +33,8 @@ const router = async ()=>{
     const matchRoutes = routes.map(route => {
         return { // return an object
             route:  route,
-            isMatch: location.pathname === route.path //boolean
+            result: location.pathname.match(pathToRegex(route.path))
+            // isMatch: location.pathname === route.path //boolean
             /*
             Toma la ruta solicitada o actual en HTML y la compara
             con el objeto routes
@@ -40,7 +42,7 @@ const router = async ()=>{
         };
     });
     
-    let match = matchRoutes.find(routeMatch => routeMatch.isMatch);
+    let match = matchRoutes.find(routeMatch => routeMatch.result !== null);
     // match find that one that is true
     if(!match){
         match = {
@@ -49,7 +51,7 @@ const router = async ()=>{
         };
     }
 
-    const view = new match.route.view();
+    const view = new match.route.view(getParams(match));
     document.querySelector("#app").innerHTML = await view.getHtml();
     //match.route.view() put all the routes wit true and false
 };
