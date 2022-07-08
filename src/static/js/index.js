@@ -2,13 +2,15 @@ import Dashboard from './views/Dashboard.js';
 import Settings from './views/Settings.js';
 import Posts from './views/Posts.js';
 
+const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+
 // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 // const getParams = match => {
 //     const values = match.result.slice(1);
 //     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
 
 //     return Object.fromEntries(keys.map((key, i) => {
-//         return [key, values[i]];
+//         return [key, values[i]] ;
 //     }));
 // };
 
@@ -19,18 +21,10 @@ const navigateTo = url =>{
 
 const router = async ()=>{
     const routes = [
-        {   path : "/",
-            view: Dashboard
-        },
-        {
-            path : '/posts',
-            view: Posts
-            // view: ()=> console.log('Posts')
-        },
-        {
-            path : '/settings',
-            view: Settings
-        },
+        {   path : "/", view: Dashboard},
+        {   path : '/posts', view: Posts},  // view: ()=> console.log('Posts')
+        //{   path : '/posts/:id', view: viewPosts},  // view: ()=> console.log('Posts')
+        {   path : '/settings', view: Settings }
         
     ];
 
