@@ -50,7 +50,7 @@ const router = async ()=>{
     if(!match){
         match = {
             route: routes[0], // if there is not a match, it goes to index aka dashboard 
-            isMatch: [location.pathname]            
+            result: [location.pathname]            
         };
     }
 
