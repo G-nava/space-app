@@ -5,14 +5,16 @@ import Posts from './views/Posts.js';
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
-// const getParams = match => {
-//     const values = match.result.slice(1);
-//     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
+const getParams = match => {
+    const values = match.result.slice(1);
+    const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
 
-//     return Object.fromEntries(keys.map((key, i) => {
-//         return [key, values[i]] ;
-//     }));
-// };
+    console.log(Array.from(match.route.path.matchAll(/:(\w+)/g)));
+    // return Object.fromEntries(keys.map((key, i) => {
+    //     return [key, values[i]] ;
+    // }));
+    return {};
+};
 
 const navigateTo = url =>{
     history.pushState(null, null, url);
@@ -20,11 +22,11 @@ const navigateTo = url =>{
 };
 
 const router = async ()=>{
-    console.log(pathToRegex('/posts/:id'));
+    console.log(pathToRegex('/posts/:id'));     
     const routes = [
         {   path : "/", view: Dashboard},
         {   path : '/posts', view: Posts},  // view: ()=> console.log('Posts')
-        //{   path : '/posts/:id', view: viewPosts},  // view: ()=> console.log('Posts')
+        {   path : '/posts/:id', view: Posts},  // view: ()=> console.log('Posts')
         {   path : '/settings', view: Settings }
         
     ];

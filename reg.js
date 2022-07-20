@@ -1,5 +1,5 @@
 
-const detectRegex = path => new RegEx('^'+ path.replace(/\//g, '\\/').replace(/:\w+/g, '.+') + '$');
+const detectRegex = path => new RegExp('^'+ path.replace(/\//g, '\\/').replace(/:\w+/g, '.+') + '$');
 
 
 const r = '/post/5'
@@ -11,3 +11,5 @@ const ruta =[
    
  
 console.log(r.match(/^\/post\/.+$/));
+
+console.log(detectRegex('/post/name/:id/:id/:id'));
