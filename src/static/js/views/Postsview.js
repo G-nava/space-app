@@ -6,7 +6,6 @@ export default class extends AbstractView {
         this.setTitle("viewing Posts");
     }
 
-    
     async getHtml() {
         console.log(this.params.id);
         /*
