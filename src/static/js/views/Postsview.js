@@ -12,6 +12,7 @@ export default class extends AbstractView {
         con este parametro puedo hacer llamadas al server site 
         para obtener la informacion para el id que se indique
         */
+       
         return `
             <h1>Posts view</h1>
             <p>
